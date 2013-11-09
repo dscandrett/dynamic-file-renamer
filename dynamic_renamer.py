@@ -10,7 +10,7 @@ class DynamicFileRenamer(threading.Thread):
     
     def __init__(self, file_dir, str_pattern, replace_with, verbose):
         threading.Thread.__init__(self)
-        self.file_dir = file_dir
+        self.file_dir = os.path.expanduser(file_dir)
         self.str_pattern = str_pattern
         self.replace_with = replace_with
         self.verbose = verbose
@@ -24,13 +24,13 @@ class DynamicFileRenamer(threading.Thread):
                     print '---'
                     print 'Found match with |{0}|'.format(file_name)
                 newFile = file_name.replace(self.str_pattern, self.replace_with)
-                rename(file_name, newFile)
+                rename(os.path.join(self.file_dir, file_name), os.path.join(self.file_dir, newFile))
                 if self.verbose:
                     print 'Now named |{0}|'.format(newFile)
                     print '---'
             else:
                 if self.verbose:
-                    print '|{0}| does not match pattern,'.format(file_name)
+                    print '|{0}| does not match pattern'.format(file_name)
         
         
 if __name__ == '__main__':
