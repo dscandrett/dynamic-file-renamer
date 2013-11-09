@@ -35,9 +35,9 @@ class DynamicFileRenamer(threading.Thread):
         
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("This script is designed to iterate over a given directory and change names of the files to specification")
-    parser.add_argument('-d', '--directory', dest='file_dir', default=os.getcwd())
-    parser.add_argument('-p', '--pattern', dest='str_pattern', required=True)
-    parser.add_argument('-r', '--replacement', dest='replace_with', required=True)
+    parser.add_argument('-d', '--directory', dest='file_dir', default=os.getcwd(), help='The directory to look through. Default is the current working directory.')
+    parser.add_argument('-p', '--pattern', dest='str_pattern', required=True, help='The string to match. This does not use regular expressions. To find a file extension, for example, you might pass |-p .jpg|')
+    parser.add_argument('-r', '--replacement', dest='replace_with', default='', help='The replacement string. Default is to remove the matched string |empty string|)')
     parser.add_argument('-v', '--verbose', dest='verbose', default=False, action='store_true')
     args = parser.parse_args()
     renamer = DynamicFileRenamer(args.file_dir,args.str_pattern,args.replace_with,args.verbose)

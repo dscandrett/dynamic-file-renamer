@@ -7,13 +7,20 @@ A small python script designed to help bulk renaming of files. There are a lot o
 ### How to use
 ```
 usage: This script is designed to iterate over a given directory and change names of the files to specification
-       [-h] [-d FILE_DIR] -p STR_PATTERN -r REPLACE_WITH [-v]
+       [-h] [-d FILE_DIR] -p STR_PATTERN [-r REPLACE_WITH] [-v]
 
 optional arguments:
   -h, --help            show this help message and exit
   -d FILE_DIR, --directory FILE_DIR
+                        The directory to look through. Default is the current
+                        working directory.
   -p STR_PATTERN, --pattern STR_PATTERN
+                        The string to match. This does not use regular
+                        expressions. To find a file extension, for example,
+                        you might pass |-p .jpg|
   -r REPLACE_WITH, --replacement REPLACE_WITH
+                        The replacement string. Default is to remove the
+                        matched string |empty string|)
   -v, --verbose
 ```
 ### License
