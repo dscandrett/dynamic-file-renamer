@@ -59,5 +59,3 @@ if __name__ == '__main__':
     threadLock = threading.Lock()
     renamer.start()
     renamer.join()
-    
-    

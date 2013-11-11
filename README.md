@@ -44,6 +44,11 @@ Now named |document.nonsense|
 ---
 ```
 
+Two basic tests are included. Investigate here:
+```
+python dynamic_renamer_test.py
+```
+
 ### License
 
 The MIT License (MIT)
